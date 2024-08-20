@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Mes intérêts</title>
+    <meta name="description" content="Intérêts de DUGAT Adrien" />
+    <meta name="author" content="DUGAT Adrien" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/hobby.css" />
+    <script src="js/modernizr.custom.js"></script>
+    <style>
+        .maintenance-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            z-index: 9999;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="maintenance-overlay">
+    <p>Maintenance en cours... Merci de revenir plus tard.</p>
+</div>
+
+<script>
+    setTimeout(function() {
+        window.close();
+    }, 5000); // 5 secondes
+</script>
+</body>
+</html>

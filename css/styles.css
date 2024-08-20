@@ -1,0 +1,467 @@
+/* General Blueprint Style */
+/* @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700); */
+@font-face {
+	font-family: 'bpicons';
+	src:url('fonts/bpicons/bpicons.eot');
+	src:url('fonts/bpicons/bpicons.eot') format('embedded-opentype'),
+		url('fonts/bpicons/bpicons.woff') format('woff'),
+		url('fonts/bpicons/bpicons.ttf') format('truetype'),
+		url('fonts/bpicons/bpicons.svg#bpicons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+} /* Made with http://icomoon.io/ */
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body, html { font-size: 100%; padding: 0; margin: 0;}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+html {
+    scroll-behavior: smooth;
+    transition: scroll-behavior 1s;
+}
+
+body {
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    color: #fff;
+    background: #000;
+}
+
+a {
+	color: #f0f0f0;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000;
+}
+
+.container > header {
+    width: 100%; /* Modification de la largeur */
+    height: 100vh; /* Utilisation de 100% de la hauteur de la fenêtre */
+    max-width: none; /* Suppression de la limite de largeur maximale */
+    margin: 0; /* Suppression des marges */
+    padding: 2.875em 1.875em 1.875em;
+    box-sizing: border-box; /* Inclure les rembourrages dans la largeur */
+    display: flex; /* Utilisation de flexbox */
+    flex-direction: column; /* Alignement vertical */
+    justify-content: center; /* Centrage vertical */
+    align-items: center; /* Centrage horizontal */
+  }
+  
+.container > header h1 {
+	font-size: 2.125em;
+	line-height: 1.3;
+	float: left;
+	font-weight: 400;
+}
+
+@media screen and (max-width: 55em) {
+
+	.container > header h1 {
+		float: none;
+	}
+
+	.container > header > span,
+	.container > header h1 {
+		text-align: center;
+	}
+
+	.container > header {
+		margin: 0 auto;
+	}
+
+	.container > header > span {
+		text-indent: 30px;
+	}
+}
+
+.cbp-so-scroller {
+	margin-top: 3em;
+	overflow: hidden;
+}
+
+.cbp-so-section {
+	margin-bottom: 15em;
+    display: flex;
+    align-items: center; /* Centrer les éléments verticalement */
+}
+
+/* Clear floats of children */
+.cbp-so-section:before,
+.cbp-so-section:after {
+	content: " ";
+	display: table;
+}
+
+.cbp-so-section:after {
+	clear: both;
+}
+
+/* Text styling */
+.cbp-so-section h2 {
+	font-size: 5em;
+	font-weight: 300;
+	line-height: 1;
+    text-align: center;
+}
+
+.cbp-so-section p {
+	font-size: 2em;
+	font-weight: 300;
+}
+
+/* Sides */
+
+.cbp-so-side {
+	width: 50%;
+	float: left;
+	margin: 0;
+	padding: 3em 4%;
+	overflow: hidden;
+	min-height: 12em;
+	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+	-moz-transition: -moz-transform 0.5s, opacity 0.5s;
+	transition: transform 0.5s, opacity 0.5s;
+}
+
+/* Clear floats of children */
+.cbp-so-side:before,
+.cbp-so-side:after {
+	content: " ";
+	display: table;
+}
+
+.cbp-so-side:after {
+	clear: both;
+}
+
+.cbp-so-side-right {
+	text-align: left;
+}
+
+.cbp-so-side-left {
+	text-align: right;
+}
+
+.cbp-so-side-right img {
+	float: left;
+}
+
+.cbp-so-side-left img {
+	float: right;
+}
+
+/* Initial state (hidden or anything else) */
+.cbp-so-init .cbp-so-side {
+	opacity: 0;
+}
+
+.cbp-so-init .cbp-so-side-left {
+	-webkit-transform: translateX(-80px);
+	-moz-transform: translateX(-80px);
+	transform: translateX(-80px);
+}
+
+.cbp-so-init .cbp-so-side-right {
+	-webkit-transform: translateX(80px);
+	-moz-transform: translateX(80px);
+	transform: translateX(80px);
+}
+
+/* Animated state */
+/* add you final states (transition) or your effects (animations) for each side */
+.cbp-so-section.cbp-so-animate .cbp-so-side-left,
+.cbp-so-section.cbp-so-animate .cbp-so-side-right {
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
+	opacity: 1;
+}
+
+/* For example, add a delay for the right side:
+.cbp-so-section.cbp-so-animate .cbp-so-side-right {
+	-webkit-transition-delay: 0.2s;
+	-moz-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+*/
+
+/* Example media queries */
+
+@media screen and (max-width: 73.5em) {
+	.cbp-so-scroller {
+		font-size: 65%;
+	}
+
+	.cbp-so-section h2 {
+		margin: 0;
+	}
+
+	.cbp-so-side img {
+		max-width: 120%;
+	}
+}
+
+@media screen and (max-width: 41.125em) {
+	.cbp-so-side {
+		float: none;
+		width: 100%;
+	}
+
+	.cbp-so-side img {
+		max-width: 100%;
+	}
+}
+
+/* CIRCLE MENU */
+
+.menu {
+
+    .wrap{
+        position:relative;
+        width:70vmin;
+        height:70vmin;
+        margin:0 auto;
+        background:inherit;
+        transform:scale(1) translatez(0px);
+        opacity:1;
+        transition:none;
+    }
+
+    a{
+        position:absolute;
+        left:0;
+        top:0;
+        width:47.5%;
+        height:47.5%;
+        overflow:hidden;
+        transform:scale(1) translateZ(0px);
+        background:#585247;
+        opacity: 1;
+    }
+
+    a div{
+        height:100%;
+        background-size:cover;
+        opacity:.5;
+        transition:opacity .5s;
+        border-radius:inherit;
+    }
+
+    a:hover div {
+        opacity: 0.4; /* Ajustez l'opacité pour obtenir l'effet de gris souhaité */
+    }
+
+    a:nth-child(1){
+        border-radius:40vmin 0 0 0;
+        transform-origin: 110% 110%;
+        transition:transform .4s .15s;
+    }
+
+    a:nth-child(1) div{
+        background-image:url('../images/cv.jpg');
+    }
+
+    a:nth-child(2){
+        border-radius:0 40vmin 0 0;
+        left:52.5%;
+        transform-origin: -10% 110%;
+        transition:transform .4s .2s;
+    }
+
+    a:nth-child(2) div{
+        background-image:url('../images/hobby.jpg');
+    }
+
+    a:nth-child(3){
+        border-radius:0 0 0 40vmin;
+        top:52.5%;
+        transform-origin: 110% -10%;
+        transition:transform .4s .25s;
+    }
+
+    a:nth-child(3) div{
+        background-image:url('../images/travel.jpg');
+    }
+
+    a:nth-child(4){
+        border-radius:0 0 40vmin 0;
+        top:52.5%;
+        left:52.5%;
+        transform-origin: -10% -10%;
+        transition:transform .4s .3s;
+    }
+
+    a:nth-child(4) div{
+        background-image: url('../images/ref.jpg');
+    }
+
+    a:nth-child(5){
+        width:55%;
+        height:55%;
+        left:22.5%;
+        top:22.5%;
+        border-radius:50vmin;
+        box-shadow:0 0 0 5vmin #000000; /* Ajustement de la couleur de la bordure */
+        transform:scale(1);
+    }
+
+    a:nth-child(5) div{
+        background-image: url('../images/PdP.jpg');
+    }
+
+    span{
+        position:relative;
+        display:block;
+        margin:0 auto;
+        top:45vmin;
+        width:20vmin; /* Ajustement de la taille du rond */
+        height:20vmin; /* Ajustement de la taille du rond */
+        border-radius:100%;
+        background:#ffffff; /* Changement de la couleur du rond du menu en blanc */
+        text-align: center; /* Centrer le texte dans le rond */
+        line-height: 20vmin; /* Centrer verticalement le texte */
+        cursor: pointer; /* Ajouter un curseur pointer au survol */
+    }
+
+    span span{
+        position:absolute;
+        width:100%;
+        height:3px;
+        background:#ACA696;
+        left:20%;
+        top:50%;
+        border-radius:0;
+        display: none; /* Cacher les barres horizontales */
+    }
+
+    span:after, span:before{
+        /* content:'Bienvenue'; /* Ajouter le texte "Bienvenue" */
+        position:absolute;
+        left:50%; /* Centrer horizontalement */
+        top:50%; /* Centrer verticalement */
+        transform: translate(-65%, -55%); /* Centrer le texte */
+        width:100%;
+        height:100%;
+        color: black; /* Couleur du texte */
+        font-size: 0.8em; /* Taille de la police */
+        text-align: center; /* Centrer le texte horizontalement */
+        line-height: 20vmin; /* Centrer verticalement le texte */
+        display: block; /* Afficher le texte */
+    }
+
+    .wrap:hover span span{
+        display: none; /* Cacher les barres horizontales au survol */
+    }
+
+    span + .wrap, .wrap{
+        transform:scale(.8) translateZ(0px);
+        opacity:1;
+    }
+
+    .wrap a {
+        transform:scale(1) translateZ(0px);
+    }
+
+    a div{
+        opacity:1;
+        transform:translateZ(0px);
+    }
+
+    .container > header {
+        position: relative; /* Ajout de la position relative */
+    }
+}
+
+.center {
+    position: relative;
+    top: 30vh; /* Centrer verticalement par rapport à la fenêtre */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Ajout des propriétés suivantes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    position: fixed;
+    bottom: 0;
+    left: 50%; /* Pour centrer horizontalement */
+    top: 90%;
+    transform: translateX(-50%); /* Pour centrer horizontalement */
+    /* Ajoutez d'autres styles selon vos besoins */
+}
+
+header h1.menu, header h1.center {
+    /* Annulez les propriétés spécifiques que vous ne voulez pas appliquer à l'élément h1 */
+    /* Par exemple : */
+    text-align: initial; /* ou la valeur par défaut de votre choix */
+    margin: initial; /* ou la valeur par défaut de votre choix */
+    /* Continuez avec d'autres propriétés que vous souhaitez annuler */
+}
+
+/* Media queries pour centrer la figure par rapport à la hauteur du texte sur les grands écrans */
+@media screen and (min-width: 768px) {
+    .cbp-so-section {
+        display: flex;
+        align-items: center;
+    }
+
+    .cbp-so-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cbp-so-side img {
+        margin-bottom: 20px; /* Ajoutez une marge en bas de l'image pour l'espace */
+    }
+}
+
+/* Media queries pour empiler le texte et les figures les uns sur les autres sur les petits écrans */
+@media screen and (max-width: 767px) {
+    .cbp-so-section {
+        display: block;
+    }
+
+    .cbp-so-side {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px; /* Ajoutez une marge en bas de chaque côté pour l'espace */
+    }
+}
+
+
+footer {
+    margin-top: -15%;
+    background-color: #000; /* Couleur de fond */
+    text-align: center; /* Centrer le contenu */
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: space-evenly; /* Espacement équitable entre les boutons */
+    align-items: center; /* Centrer verticalement les boutons */
+    padding: 20px; /* Ajouter un peu d'espacement intérieur */
+}
+
+.footer-buttons a {
+    margin: 0; /* Réinitialiser la marge */
+}
+
+.footer-buttons a img {
+    width: 50px; /* Taille des icônes */
+    height: 50px;
+    border-radius: 50%; /* Bordure arrondie pour créer des ronds */
+    background-color: white; /* Couleur de fond des ronds */
+    padding: 10px; /* Espace à l'intérieur des ronds */
+}
+
+footer p {
+    color: white; /* Couleur du texte */
+    margin-top: 40px; /* Espace au-dessus du texte */
+}

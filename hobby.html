@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Mes intérêts</title>
+    <meta name="description" content="Intérêts de DUGAT Adrien" />
+    <meta name="author" content="DUGAT Adrien" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/hobby.css" />
+</head>
+<body>
+
+  <!-- Première fenêtre de règles -->
+  <div class="rules-window" id="first-rules-window">
+      <div class="rules-text">
+          <h2>Objectif</h2>
+          <!-- Ajoutez vos règles de jeu ici -->
+          <p>Ce jeu vous dévoilera peu à peu des aspects de ma personnalité.</p>
+          <p>Cependant, il ne vise pas à révéler tout à mon sujet ni à rendre la tâche facile.</p>
+          <p>Votre objectif sera de découvrir progressivement les éléments qui rythment mon quotidien.</p>
+      </div>
+      <button class="next-button" id="next-1">NEXT</button>
+  </div>
+
+  <!-- Deuxième fenêtre de règles -->
+  <div class="rules-window" id="second-rules-window">
+      <div class="rules-text">
+          <h2>En +</h2>
+          <!-- Ajoutez vos règles de jeu ici -->
+          <p>Inspiré de Crossy Road, le principe demeure inchangé : avancer le plus loin possible. Utilisez les flèches directionnelles quand le jeu commencera.</p>
+          <p>Assurez-vous de regarder des deux côtés avant de traverser... </p>
+          <p>Lorsque vous arrivez à un palier, veillez à anticiper, car vous ne pourrez plus bouger. Évitez de rester sur la route à ce moment-là.</p>
+          <p>Toutefois, si vous perdez et recommencez, les paliers atteints ne réapparaîtront plus à moins que vous ne rechargiez la page.</p>
+      </div>
+      <button class="next-button" id="next-2">NEXT</button>
+  </div>
+
+    <!-- Troisième fenêtre de règles -->
+    <div class="rules-window" id="third-rules-window">
+        <div class="rules-text">
+            <h2>Les paliers à atteindre</h2>
+            <!-- Ajoutez d'autres règles ici -->
+            <p>Palier 1 : 5</p>
+            <p>Palier 2 : 18</p>
+            <p>Palier 3 : 25</p>
+            <p>Palier 4 : 32</p>
+            <p>Palier 5 : 45</p>
+            <p>Palier 6 : 60</p>
+            <p>Palier 7 : XXX</p>
+        </div>
+        <button class="start-game" id="start-game">START</button>
+    </div>
+
+    <!-- Reste de votre contenu -->
+    <!-- partial:index.partial.html -->
+
+    <div id="counter">0</div>
+    
+    <div class="overlay">
+      <div class="overlay-content"></div>
+    </div>
+
+  
+    <div id="controlls">
+      <div style="text-align: center;">
+        <button id="forward">
+          <svg width="30" height="30" viewBox="0 0 10 10">
+            <g transform="rotate(0, 5,5)">
+              <path d="M5,4 L7,6 L3,6 L5,4" />
+            </g>
+          </svg>
+        </button>
+        <button id="left">
+          <svg width="30" height="30" viewBox="0 0 10 10">
+            <g transform="rotate(-90, 5,5)">
+              <path d="M5,4 L7,6 L3,6 L5,4" />
+            </g>
+          </svg>
+        </button>
+        <button id="backward">
+          <svg width="30" height="30" viewBox="0 0 10 10">
+            <g transform="rotate(180, 5,5)">
+              <path d="M5,4 L7,6 L3,6 L5,4" />
+            </g>
+          </svg>
+        </button>
+        <button id="right">
+          <svg width="30" height="30" viewBox="0 0 10 10">
+            <g transform="rotate(90, 5,5)">
+              <path d="M5,4 L7,6 L3,6 L5,4" />
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div id="end">
+      <button id="retry">Try Again</button>
+    </div>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js'></script>
+    <script  src="js/hobby.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var firstRulesWindow = document.getElementById('first-rules-window');
+            var secondRulesWindow = document.getElementById('second-rules-window');
+            var thirdRulesWindow = document.getElementById('third-rules-window');
+            var nextButton1 = document.getElementById('next-1');
+            var nextButton2 = document.getElementById('next-2');
+            var startGameButton = document.getElementById('start-game');
+            var controlsDiv = document.getElementById('controlls');
+
+            // Afficher les boutons de contrôle avec le style spécifié
+            function showControls() {
+                controlsDiv.style.position = 'absolute';
+                controlsDiv.style.minWidth = '100%';
+                controlsDiv.style.minHeight = '100%';
+                controlsDiv.style.display = 'flex';
+                controlsDiv.style.alignItems = 'flex-end';
+                controlsDiv.style.justifyContent = 'center';
+            }
+
+            // Masquer les boutons de contrôle au chargement de la page
+            controlsDiv.style.display = 'none';
+
+            // Afficher la première fenêtre de règles lors du chargement de la page
+            firstRulesWindow.style.display = 'block';
+
+            // Afficher la deuxième fenêtre de règles et cacher la première lors du clic sur le bouton "NEXT"
+            nextButton1.addEventListener('click', function() {
+                firstRulesWindow.style.display = 'none';
+                secondRulesWindow.style.display = 'block';
+            });
+
+            // Afficher la troisième fenêtre de règles et cacher la première lors du clic sur le bouton "NEXT"
+            nextButton2.addEventListener('click', function() {
+                secondRulesWindow.style.display = 'none';
+                thirdRulesWindow.style.display = 'block';
+            });
+
+            // Cacher la troisème fenêtre de règles et démarrer le jeu lors du clic sur le bouton "START"
+            startGameButton.addEventListener('click', function() {
+                thirdRulesWindow.style.display = 'none';
+                // Afficher les boutons de contrôle une fois que le jeu démarre
+                showControls();
+                // Ajoutez ici le code pour démarrer le jeu
+            });
+        });
+        
+    </script>
+</body>
+</html>
